@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journée Carrière — UIST / 2ITS</title>
+<style>
+:root{--blue:#0a8fe0;--lime:#e8ff2a;--bg:#f4f8fc;--card:#fff;--txt:#3a3a3a;--mut:#6b7280;--bd:#d6e2ee;--dk:#2f3336}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+header{background:#fff;border-bottom:4px solid var(--blue)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px}
+header img{height:56px;max-width:45%;object-fit:contain}
+.hero{background:linear-gradient(135deg,var(--dk),#1b5f8f);color:#fff;text-align:center;padding:56px 18px 64px}
+.hero h1{font-size:clamp(28px,6vw,46px);margin:0 0 10px;animation:up .7s both}.hero h1 span{color:var(--lime)}
+.hero p{max-width:560px;margin:0 auto 26px;opacity:.92}
+.tag{display:inline-block;background:var(--lime);color:#222;font-weight:700;font-size:13px;padding:4px 14px;border-radius:99px;margin-bottom:14px}
+.btn{border:0;cursor:pointer;background:var(--lime);color:#1f2528;font:700 16px inherit;padding:14px 30px;border-radius:99px;transition:.2s}
+.btn:hover{transform:translateY(-2px)}.btn:disabled{opacity:.6}.btn.blue{background:var(--blue);color:#fff}.btn.sm{padding:8px 16px;font-size:14px}.btn.gr{background:#e5ecf3;color:var(--txt)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:-34px auto 10px}
+.fact{background:var(--card);border-radius:18px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.08);text-align:center}.fact b{display:block;color:var(--blue);font-size:17px}
+.card{background:var(--card);border-radius:22px;padding:26px;box-shadow:0 8px 28px rgba(0,0,0,.09);margin:26px auto;max-width:680px}
+h2{margin:0 0 4px;color:var(--blue)}h3{margin:22px 0 10px;border-left:5px solid var(--lime);padding-left:10px}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+input,select{width:100%;padding:12px 14px;border:1.5px solid var(--bd);border-radius:14px;font:inherit;background:#fff;color:var(--txt)}
+input:focus,select:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,143,224,.2)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:560px){.row{grid-template-columns:1fr}}
+.radio{display:flex;gap:10px}.radio label{flex:1;margin:0;border:1.5px solid var(--bd);border-radius:14px;padding:11px;text-align:center;cursor:pointer;font-weight:500}
+.radio input{display:none}.radio label:has(input:checked){background:var(--blue);color:#fff;border-color:var(--blue)}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:18px 0;font-size:14px;font-weight:400}.chk input{width:20px;margin-top:3px}
+.err{color:#d93636;font-size:14px;min-height:20px;margin-bottom:6px}.bad{border-color:#d93636!important}
+.ok{text-align:center}.num{font-size:32px;font-weight:800;letter-spacing:2px;background:var(--lime);color:#222;display:inline-block;padding:10px 24px;border-radius:16px;margin:14px 0}
+.hide{display:none!important}.hp{position:absolute;left:-9999px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.stat{background:var(--card);border-radius:16px;padding:14px;text-align:center;border-top:4px solid var(--blue)}.stat b{font-size:24px;color:var(--blue);display:block}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.tools input,.tools select{flex:1;min-width:140px}
+.tbl{overflow-x:auto;background:var(--card);border-radius:16px}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}th{background:var(--blue);color:#fff}
+td button{border:0;background:none;cursor:pointer;font-size:16px}
+dialog{border:0;border-radius:20px;padding:22px;width:min(480px,92vw)}dialog::backdrop{background:rgba(0,0,0,.45)}
+footer{background:var(--dk);color:#ccd;text-align:center;padding:22px 18px;margin-top:40px;font-size:14px}footer b{color:var(--lime)}footer a{color:#9ab;font-size:12px}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="wrap"><img src="logo-uist.jpg" alt="UIST"><img src="logo-2its.jpg" alt="2ITS"></div></header>
+
+<main id="home"><section class="hero"><span class="tag">🎓 Journée Carrière</span>
+<h1>Construis ton <span>avenir</span> avec UIST / 2ITS</h1>
+<p>Rencontre des professionnels, découvre nos filières et trouve ton orientation. Inscris-toi en quelques minutes avec un seul formulaire.</p>
+<button class="btn" onclick="go('form')">Commencer mon inscription</button></section>
+<div class="wrap"><div class="facts"><div class="fact"><b>BTS</b>2 ans formation</div><div class="fact"><b>LICENCE</b>3 ans formation</div><div class="fact"><b>MASTER</b>2 ans formation</div></div></div></main>
+
+<main id="form" class="wrap hide"><div class="card">
+<h2>Journée Carrière — UIST / 2ITS</h2><p style="color:var(--mut);margin:0">Les champs marqués * sont obligatoires.</p>
+<div id="f">
+<h3>Informations du participant</h3>
+<div class="row"><div><label>Nom *</label><input id="nom" autocomplete="family-name"></div><div><label>Prénoms *</label><input id="pre" autocomplete="given-name"></div></div>
+<label>Sexe *</label><div class="radio"><label><input type="radio" name="sx" value="Masculin">Masculin</label><label><input type="radio" name="sx" value="Féminin">Féminin</label></div>
+<div class="row"><div><label>Numéro de téléphone *</label><input id="tel" type="tel" inputmode="tel" placeholder="07 00 00 00 00" autocomplete="tel"></div><div><label>Adresse e-mail</label><input id="mail" type="email" autocomplete="email"></div></div>
+<h3>Informations scolaires</h3>
+<label>Établissement d'origine *</label><input id="etab">
+<div class="row"><div><label>Niveau d'études *</label><select id="niv"><option value="">Sélectionner votre niveau</option><option>3ème</option><option>Seconde</option><option>Première</option><option>Terminale</option><option>BAC obtenu</option><option>BTS / Licence</option><option>Master</option><option>Autre</option></select></div><div><label>Filière ou série</label><input id="fil" placeholder="A, C, D, G…"></div></div>
+<h3>Orientation</h3>
+<label>Quel domaine vous intéresse ? *</label><select id="dom"><option value="">Choisir un domaine</option><option>Informatique & Numérique</option><option>Réseaux & Télécoms</option><option>Génie civil & BTP</option><option>Électricité & Énergie</option><option>Gestion & Commerce</option><option>Finance & Comptabilité</option><option>Logistique & Transport</option><option>Santé & Biotechnologie</option><option>Communication & Marketing</option><option>Autre</option></select>
+<input class="hp" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label class="chk"><input type="checkbox" id="cons"><span>J'accepte que mes informations soient utilisées pour l'organisation de la journée carrière. *</span></label>
+<div class="err" id="err" role="alert"></div>
+<button class="btn blue" id="sub" style="width:100%">VALIDER MON INSCRIPTION</button></div>
+<div id="done" class="ok hide"><div style="font-size:54px">✅</div><h2>Inscription confirmée</h2><p>Merci <b id="dn"></b>. Conserve ton numéro de participation :</p><div class="num" id="dnum"></div><p style="color:var(--mut)">Présente-le à l'accueil le jour de l'événement.</p><button class="btn blue" onclick="go('home')">Retour à l'accueil</button></div>
+</div></main>
+
+<main id="admin" class="wrap hide"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px"><h2 style="margin:0">Espace administrateur</h2><button class="btn sm gr" onclick="go('home')">⌂ Accueil</button></div>
+<div id="login" class="card"><label>Mot de passe</label><input id="pw" type="password" autocomplete="new-password"><div class="err" id="lerr"></div><button class="btn blue" id="lbtn">Se connecter</button></div>
+<div id="adm" class="hide">
+<div class="stats"><div class="stat"><b id="s1">0</b>Inscrits</div><div class="stat"><b id="s2">0</b>Établissements</div><div class="stat"><b id="s3">–</b>Domaine n°1</div></div>
+<div class="tools"><input id="q" placeholder="🔎 Nom ou téléphone"><select id="fe"></select><select id="fn"></select><button class="btn sm blue" id="exp">⬇ Exporter (Excel/CSV)</button><button class="btn sm gr" id="ref">↻</button><button class="btn sm gr" id="out">Déconnexion</button></div>
+<div class="tbl"><table><thead><tr><th>N°</th><th>Nom</th><th>Prénoms</th><th>Sexe</th><th>Tél.</th><th>E-mail</th><th>Établissement</th><th>Niveau</th><th>Filière</th><th>Domaine</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+<p style="color:var(--mut);font-size:13px">Domaines d'intérêt : <span id="doms"></span></p></div></main>
+
+<dialog id="dlg"><h2>Modifier l'inscription</h2><div id="dbody"></div><div style="display:flex;gap:8px;margin-top:16px"><button class="btn blue sm" id="dsave">Enregistrer</button><button class="btn gr sm" id="dcancel">Annuler</button></div></dialog>
+<footer><b>UIST / 2ITS</b> — Journée Carrière • Un seul formulaire, une inscription rapide<br><a href="#admin">Espace organisateur</a></footer>
+
+<script>
+const API_URL="https://script.google.com/macros/s/AKfycbxh-A1q0Sl-wDpgEyAgNpgcSjys2AlP-EQiVLTGaN5-DtN1ztIBfFNSQjtCjjv2UTVr2g/exec";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function go(v){["home","form","admin"].forEach(x=>$(x).classList.toggle("hide",x!==v));scrollTo(0,0);if(v==="form"){$("f").classList.remove("hide");$("done").classList.add("hide")}if(v==="admin")location.hash="admin";else if(location.hash)history.replaceState(null,"",location.pathname)}
+if(location.hash==="#admin")go("admin");
+addEventListener("hashchange",()=>{if(location.hash==="#admin")go("admin")});
+async function api(b){let r;try{r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)})}catch(e){throw new Error("Connexion impossible. Vérifie internet et l'URL du serveur.")}
+ const t=await r.text();try{return JSON.parse(t)}catch(e){throw new Error("Le serveur Google ne répond pas correctement. Redéploie l'application Web avec « Qui a accès : Tout le monde ».")}}
+
+/* Inscription */
+$("sub").onclick=async()=>{
+ const F=["nom","pre","tel","etab","niv","dom"];F.forEach(i=>$(i).classList.remove("bad"));
+ const v=i=>$(i).value.trim(),sx=document.querySelector("input[name=sx]:checked"),tel=v("tel").replace(/[\s.\-()]/g,"");
+ const miss=F.filter(i=>!v(i));let m="";
+ if(miss.length){miss.forEach(i=>$(i).classList.add("bad"));m="Remplis tous les champs obligatoires."}
+ else if(!sx)m="Indique ton sexe."; else if(!/^\+?\d{8,15}$/.test(tel)){$("tel").classList.add("bad");m="Numéro de téléphone invalide."}
+ else if(v("mail")&&!/^\S+@\S+\.\S+$/.test(v("mail")))m="Adresse e-mail invalide."; else if(!$("cons").checked)m="Accepte l'utilisation de tes informations pour continuer.";
+ $("err").textContent=m;if(m)return;
+ $("sub").disabled=true;$("sub").textContent="Enregistrement…";
+ try{
+  const r=await api({action:"register",data:{nom:v("nom"),pre:v("pre"),sexe:sx.value,tel,mail:v("mail"),etab:v("etab"),niv:v("niv"),fil:v("fil"),dom:v("dom"),website:v("website"),consent:true}});
+  if(!r.ok)throw new Error(r.error);
+  $("dn").textContent=v("pre");$("dnum").textContent=r.num;$("f").classList.add("hide");$("done").classList.remove("hide");
+  F.concat(["mail","fil"]).forEach(i=>$(i).value="");$("cons").checked=false;sx.checked=false;
+ }catch(e){$("err").textContent=e.message&&e.message!=="Failed to fetch"?e.message:"Connexion impossible. Vérifie ta connexion et réessaie."}
+ $("sub").disabled=false;$("sub").textContent="VALIDER MON INSCRIPTION";
+};
+
+/* Administration */
+let PW="",rows=[];const COLS=["num","nom","pre","sexe","tel","mail","etab","niv","fil","dom"];
+try{PW=sessionStorage.getItem("pw")||""}catch(e){}
+async function load(){const r=await api({action:"list",password:PW});if(!r.ok)throw new Error(r.error);rows=r.rows.reverse();$("login").classList.add("hide");$("adm").classList.remove("hide");render()}
+$("lbtn").onclick=async()=>{PW=$("pw").value.trim();$("lerr").textContent="";try{await load();try{sessionStorage.setItem("pw",PW)}catch(e){}}catch(e){$("lerr").textContent=e.message}};
+$("pw").onkeydown=e=>{if(e.key==="Enter")$("lbtn").click()};
+if(PW)load().catch(()=>{});
+$("ref").onclick=()=>load().catch(e=>alert(e.message));
+$("out").onclick=()=>{PW="";try{sessionStorage.removeItem("pw")}catch(e){}$("adm").classList.add("hide");$("login").classList.remove("hide");$("pw").value=""};
+["q","fe","fn"].forEach(i=>$(i).oninput=render);
+function opts(id,key,ph){const cur=$(id).value,l=[...new Set(rows.map(r=>r[key]).filter(Boolean))].sort();$(id).innerHTML=`<option value="">${ph}</option>`+l.map(x=>`<option${x===cur?" selected":""}>${esc(x)}</option>`).join("")}
+function filt(){const q=$("q").value.toLowerCase().trim();return rows.filter(r=>(!q||(r.nom+" "+r.pre+" "+r.tel).toLowerCase().includes(q))&&(!$("fe").value||r.etab===$("fe").value)&&(!$("fn").value||r.niv===$("fn").value))}
+function render(){
+ opts("fe","etab","Tous les établissements");opts("fn","niv","Tous les niveaux");
+ const c={};rows.forEach(r=>c[r.dom]=(c[r.dom]||0)+1);const top=Object.entries(c).sort((a,b)=>b[1]-a[1]);
+ $("s1").textContent=rows.length;$("s2").textContent=new Set(rows.map(r=>r.etab)).size;$("s3").textContent=top[0]?top[0][0]:"–";
+ $("doms").textContent=top.map(([k,n])=>k+" ("+n+")").join(" • ")||"Aucune inscription pour le moment";
+ $("tb").innerHTML=filt().map(r=>"<tr>"+COLS.map(k=>`<td>${esc(r[k])}</td>`).join("")+`<td><button title="Modifier" data-e="${esc(r.num)}">✏️</button><button title="Supprimer" data-d="${esc(r.num)}">🗑️</button></td></tr>`).join("");
+}
+$("tb").onclick=async e=>{const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.d){if(!confirm("Supprimer l'inscription "+b.dataset.d+" ?"))return;const r=await api({action:"delete",password:PW,num:b.dataset.d});r.ok?load():alert(r.error)}
+ if(b.dataset.e){const r=rows.find(x=>x.num===b.dataset.e);$("dlg").dataset.num=r.num;
+  $("dbody").innerHTML=["nom","pre","sexe","tel","mail","etab","niv","fil","dom"].map(k=>`<label>${k==="pre"?"Prénoms":k==="nom"?"Nom":k==="sexe"?"Sexe":k==="tel"?"Téléphone":k==="mail"?"E-mail":k==="etab"?"Établissement":k==="niv"?"Niveau":k==="fil"?"Filière":"Domaine"}</label><input data-k="${k}" value="${esc(r[k])}">`).join("");$("dlg").showModal()}};
+$("dcancel").onclick=()=>$("dlg").close();
+$("dsave").onclick=async()=>{const data={};$("dbody").querySelectorAll("input").forEach(i=>data[i.dataset.k]=i.value);
+ const r=await api({action:"update",password:PW,num:$("dlg").dataset.num,data});if(r.ok){$("dlg").close();load()}else alert(r.error)};
+$("exp").onclick=()=>{const H=["Numéro","Nom","Prénoms","Sexe","Téléphone","E-mail","Établissement","Niveau","Filière","Domaine"];
+ const csv="\ufeff"+[H.join(";")].concat(filt().map(r=>COLS.map(k=>'"'+String(r[k]??"").replace(/"/g,'""')+'"').join(";"))).join("\r\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download="inscriptions-journee-carriere.csv";a.click()};
+</script></body></html>
