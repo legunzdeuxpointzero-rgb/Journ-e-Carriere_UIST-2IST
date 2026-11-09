@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a8fe0">
+<meta name="description" content="Inscription à la Journée Carrière UIST / 2ITS.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
 <title>Journée Carrière — UIST / 2ITS</title>
 <style>
 :root{--blue:#0a8fe0;--lime:#e8ff2a;--bg:#f4f8fc;--card:#fff;--txt:#3a3a3a;--mut:#6b7280;--bd:#d6e2ee;--dk:#2f3336}
@@ -15,6 +22,12 @@ header img{height:56px;max-width:45%;object-fit:contain}
 .tag{display:inline-block;background:var(--lime);color:#222;font-weight:700;font-size:13px;padding:4px 14px;border-radius:99px;margin-bottom:14px}
 .btn{border:0;cursor:pointer;background:var(--lime);color:#1f2528;font:700 16px inherit;padding:14px 30px;border-radius:99px;transition:.2s}
 .btn:hover{transform:translateY(-2px)}.btn:disabled{opacity:.6}.btn.blue{background:var(--blue);color:#fff}.btn.sm{padding:8px 16px;font-size:14px}.btn.gr{background:#e5ecf3;color:var(--txt)}
+.btn.cta{background-color:var(--lime);background-image:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.7) 50%,transparent 65%);background-size:220% 100%;animation:cta-shine 4s ease-in-out infinite,cta-glow 2.8s ease-in-out infinite,cta-bob 2s ease-in-out infinite;box-shadow:0 6px 22px rgba(232,255,42,.28)}
+.btn.cta:hover,.btn.cta:focus-visible{animation-play-state:paused;transform:translateY(-3px) scale(1.035);box-shadow:0 10px 30px rgba(232,255,42,.5)}
+.btn.cta:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@keyframes cta-shine{0%,55%{background-position:100% 0}85%,100%{background-position:-120% 0}}
+@keyframes cta-glow{0%,100%{box-shadow:0 6px 22px rgba(232,255,42,.24)}50%{box-shadow:0 8px 28px rgba(232,255,42,.48)}}
+@keyframes cta-bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.025)}}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:-34px auto 10px}
 .fact{background:var(--card);border-radius:18px;padding:18px;box-shadow:0 6px 20px rgba(0,0,0,.08);text-align:center}.fact b{display:block;color:var(--blue);font-size:17px}
 .card{background:var(--card);border-radius:22px;padding:26px;box-shadow:0 8px 28px rgba(0,0,0,.09);margin:26px auto;max-width:680px}
@@ -45,7 +58,7 @@ footer{background:var(--dk);color:#ccd;text-align:center;padding:22px 18px;margi
 <main id="home"><section class="hero"><span class="tag">🎓 Journée Carrière</span>
 <h1>Construis ton <span>avenir</span> avec UIST / 2ITS</h1>
 <p>Rencontre des professionnels, découvre nos filières et trouve ton orientation. Inscris-toi en quelques minutes avec un seul formulaire.</p>
-<button class="btn" onclick="go('form')">Commencer mon inscription</button></section>
+<button class="btn cta" onclick="go('form')">Commencer mon inscription</button></section>
 <div class="wrap"><div class="facts"><div class="fact"><b>BTS</b>2 ans formation</div><div class="fact"><b>LICENCE</b>3 ans formation</div><div class="fact"><b>MASTER</b>2 ans formation</div></div></div></main>
 
 <main id="form" class="wrap hide"><div class="card">
@@ -136,4 +149,12 @@ $("dsave").onclick=async()=>{const data={};$("dbody").querySelectorAll("input").
 $("exp").onclick=()=>{const H=["Numéro","Nom","Prénoms","Sexe","Téléphone","E-mail","Établissement","Niveau","Filière","Domaine"];
  const csv="\ufeff"+[H.join(";")].concat(filt().map(r=>COLS.map(k=>'"'+String(r[k]??"").replace(/"/g,'""')+'"').join(";"))).join("\r\n");
  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download="inscriptions-journee-carriere.csv";a.click()};
+</script>
+<script>
+if ("serviceWorker" in navigator && location.protocol !== "file:") {
+  addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch(error => console.error("Échec de l'enregistrement du service worker :", error));
+  });
+}
 </script></body></html>
