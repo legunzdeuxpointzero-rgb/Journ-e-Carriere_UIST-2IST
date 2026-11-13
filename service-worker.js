@@ -1,10 +1,12 @@
-const CACHE_NAME = "journee-carriere-v1";
+const CACHE_NAME = "journee-carriere-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./logo-uist.jpg",
   "./logo-2its.jpg",
+  "./LICENCE.jpg",
+  "./WhatsApp Image 2026-11-13 at 09.21.39.jpeg",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
